@@ -1,2 +1,80 @@
-# evolving-learning-lab
-A continuously evolving learning lab focused on hands-on projects, architecture thinking, and engineering practice.
+# 数据仓库工程师可迭代学习仓库
+
+## 背景与目标
+
+我当前技术栈是 `AWS + Python + SQL`，已经具备数据处理与分析基础。  
+但数据仓库工程师岗位普遍要求大数据组件经验。  
+这个仓库用于按顺序学习大数据组件，并持续迭代沉淀可展示的项目成果。
+
+核心目标：
+- 用工程化方式补齐大数据组件能力
+- 每学完一个组件都能产出可运行 demo
+- 最终形成可用于求职面试的项目与技术说明
+
+## 学习总原则
+
+1. 先学能力模型，再学组件工具：采集、存储、计算、调度、治理。
+2. 先学开源通用方案，再映射到云厂商（阿里云/腾讯云/华为云）。
+3. 先离线数仓闭环，再实时链路，再湖仓增强。
+4. 每个阶段必须有“可运行结果 + 复盘文档”。
+
+## 组件学习路线（按顺序）
+
+### 阶段 1：离线数仓主线
+
+1. SQL 进阶：窗口函数、复杂聚合、执行计划分析、性能优化。
+2. 数仓建模：事实表、维度表、星型模型、SCD、ODS-DWD-DWS-ADS 分层。
+3. Hive：元数据管理、分区分桶、执行计划、分区裁剪。
+4. Spark：DataFrame、Shuffle、Join 策略、资源参数调优。
+5. 调度系统：Airflow 或 DolphinScheduler。
+
+阶段目标：打通“调度 -> Hive/Spark -> 宽表产出”的离线链路。
+
+### 阶段 2：实时数仓链路
+
+1. Kafka：Topic、分区、副本、消费语义。
+2. Flink：状态、Checkpoint、Watermark、窗口计算。
+3. 实时模型：明细流 + 聚合流、乱序与迟到数据处理。
+
+阶段目标：完成“Kafka -> Flink -> 明细/聚合结果表”的实时 demo。
+
+### 阶段 3：湖仓与查询加速
+
+1. Iceberg（优先）或 Hudi。
+2. Trino / StarRocks / ClickHouse（按岗位方向选择）。
+3. 数据治理：质量、血缘、权限、成本优化（小文件/冷热分层）。
+
+阶段目标：能解释架构选型依据，并展示性能与成本优化思路。
+
+## 求职导向优先级
+
+1. SQL + 数仓建模
+2. Hive + Spark
+3. Kafka + Flink
+4. 调度系统（DolphinScheduler/Airflow）
+5. 湖仓（Iceberg/Hudi）+ OLAP（StarRocks/ClickHouse/Trino）
+
+## 云厂商映射策略（避免 AWS 绑定）
+
+- 对象存储能力：S3 -> OSS / COS / OBS
+- 托管大数据能力：EMR 类能力 -> 各云同类服务
+- 数据开发平台能力：Glue 类能力 -> DataWorks / WeData 类平台
+
+面试表达建议：统一用“通用能力 + 云上映射”的方式描述项目经验。
+
+## 仓库迭代规范
+
+1. 一个组件一个文档：新增组件时同步新增学习文档。
+2. 一个组件一个 demo：每个组件必须有最小可运行示例。
+3. 每次迭代必须记录：
+   - 学到的核心概念
+   - 完成的实操内容
+   - 遇到的问题与解决方案
+   - 下一步优化计划
+
+## 当前起步建议（基于我现有基础）
+
+先从 `Hive + Spark + 数仓建模` 入手，快速完成离线闭环；  
+再学习 `Kafka + Flink` 补齐实时能力；  
+最后补 `Iceberg + OLAP`，形成完整的数据仓库工程能力栈。
+
